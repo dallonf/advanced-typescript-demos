@@ -28,14 +28,14 @@ const id: IdName = "uid";
 // Example: An observable version of an input object
 // feat. Generics!
 
-interface ObservableValue<T> {
-  currentValue: T;
-  subscribe(callback: (newValue: T) => void): void;
-  write(newValue: T): void;
+interface ObservableValue<InnerValue> {
+  currentValue: InnerValue;
+  subscribe(callback: (newValue: InnerValue) => void): void;
+  write(newValue: InnerValue): void;
 }
 
-type ObservableObject<T> = {
-  [P in keyof T]: ObservableValue<T[P]>;
+type ObservableObject<InnerObject> = {
+  [ObjectKey in keyof InnerObject]: ObservableValue<InnerObject[ObjectKey]>;
 };
 
 interface Rectangle {

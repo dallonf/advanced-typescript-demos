@@ -6,12 +6,12 @@ import * as React from "react";
 
 // Example: Extract the type from an array
 
-type ExtractFromArray<T> = T extends (infer U)[] ? U : never;
+type ExtractFromArray<Array> = Array extends (infer U)[] ? U : never;
 type StringProbably = ExtractFromArray<string[]>;
 
 // Example: Get the prop types out of a React component
 
-type ExtractPropsFromComponent<T> = T extends React.ComponentType<infer U>
+type ExtractPropsFromComponent<Component> = Component extends React.ComponentType<infer U>
   ? U
   : never;
 
