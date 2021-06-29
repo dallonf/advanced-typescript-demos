@@ -13,7 +13,7 @@ type Omitted = Omit<JustSomeProps, "z">;
 
 // Example: Override an existing interface
 
-type Override<T, TOverrides> = Omit<T, keyof TOverrides> & TOverrides;
+type Override<Type, Overrides> = Omit<Type, keyof Overrides> & Overrides;
 
 type Modified = Override<JustSomeProps, { z?: number }>;
 const modified: Modified = {

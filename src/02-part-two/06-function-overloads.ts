@@ -53,7 +53,7 @@ interface SaneLib {
 // 4. But I REALLY want to...
 
 // Fine
-function overloadedFindUserDefinition<T extends unknown[]>(...args: T): any {
+function overloadedFindUserDefinition(...args: unknown[]): any {
   if (args.length === 0) {
     // find all users
     return ["user1", "user2", "user3"];
@@ -76,5 +76,29 @@ const overloadedFindUser: FindUserFn = overloadedFindUserDefinition;
 overloadedFindUser();
 overloadedFindUser(1234);
 overloadedFindUser("Homer", "Simpson");
+
+// 5: One more trick, this one slightly more useful
+
+interface FindUserOptions {
+  name?: string;
+  country?: string;
+  id?: number;
+}
+// Only return a single, optional, result, if an ID is passed
+type FindUserResult<Options extends FindUserOptions> =
+  Options["id"] extends number ? string | null : string[];
+function findUserWithOptions<Options extends FindUserOptions>(
+  opts: Options
+): FindUserResult<Options> {
+  if (opts.id != null) {
+    // TypeScript can't quite figure out this is safe
+    return "singleUser" as FindUserResult<Options>;
+  } else {
+    return ["many", "users"] as FindUserResult<Options>;
+  }
+}
+
+findUserWithOptions({}).forEach;
+findUserWithOptions({ id: 1 })?.bold;
 
 export {};

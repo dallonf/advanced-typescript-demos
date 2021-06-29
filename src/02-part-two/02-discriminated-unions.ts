@@ -25,6 +25,32 @@ const superman: Union = {
 //   }
 // }
 
+// the "in" keyword can help narrow types
+function printUnionNarrowed(hero: Union) {
+  if ("occupation" in hero) {
+    console.log(`${hero.name} (${hero.occupation})`);
+  } else if ("power" in hero) {
+    console.log(`${hero.name} has the power of ${hero.power}`);
+  }
+}
+
+// You can also write "type predicates"
+function isHero(input: Union): input is Hero {
+  return "power" in input;
+}
+function isSecretIdentity(input: Union): input is SecretIdentity {
+  return "occupation" in input;
+}
+
+function printUnionWithPredicates(hero: Union) {
+  if (isSecretIdentity(hero)) {
+    console.log(`${hero.name} (${hero.occupation})`);
+  } else if (isHero(hero)) {
+    console.log(`${hero.name} has the power of ${hero.power}`);
+  }
+}
+
+// But discriminated unions are generally easier:
 interface HeroWithType extends Hero {
   type: "hero";
 }
