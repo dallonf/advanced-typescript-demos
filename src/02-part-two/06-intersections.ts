@@ -1,3 +1,5 @@
+// # Intersection Types
+
 type Intersection = { a: string } & { b: string };
 const sampleIntersection: Intersection = {
   a: "one",

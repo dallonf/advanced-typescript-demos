@@ -1,3 +1,5 @@
+// # Strict Mode
+
 // Check out tsconfig.json
 
 // function dontKnowWhatThisTypeIs(input) {
@@ -6,7 +8,7 @@
 
 // // -- -- --
 
-// let x: string;
+// let x: string | null;
 // console.log(x.toUpperCase()); // kaboom
 
 // // -- -- --

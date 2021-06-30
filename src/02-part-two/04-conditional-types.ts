@@ -1,19 +1,18 @@
-import * as React from "react";
+// # Conditional Types
 
-//
-// Conditional Types
-//
+import * as React from "react";
 
 // Example: Extract the type from an array
 
-type ExtractFromArray<Array> = Array extends (infer U)[] ? U : never;
+type ExtractFromArray<Array> = Array extends (infer ItemType)[]
+  ? ItemType
+  : never;
 type StringProbably = ExtractFromArray<string[]>;
 
 // Example: Get the prop types out of a React component
 
-type ExtractPropsFromComponent<Component> = Component extends React.ComponentType<infer U>
-  ? U
-  : never;
+type ExtractPropsFromComponent<Component> =
+  Component extends React.ComponentType<infer Props> ? Props : never;
 
 interface Props {
   x: number;

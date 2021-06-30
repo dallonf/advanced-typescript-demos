@@ -1,3 +1,5 @@
+// # Whats the difference between `type` and `interface`?
+
 // Interfaces declare a new type
 interface MyInterface {
   a: string;
@@ -22,7 +24,8 @@ const objectOfMyType: MyType = {
   c: "three",
 };
 
-// They're very similar!
+// They're basically interchangable!
+// Here's the one thing I thought might be the difference
 class MyExtendedType implements MyType {
   a: string = "one";
   b: string = "two";

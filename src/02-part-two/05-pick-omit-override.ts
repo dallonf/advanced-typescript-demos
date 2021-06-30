@@ -1,6 +1,4 @@
-//
-// Utility types
-//
+// # Utility types
 
 interface JustSomeProps {
   x: string;

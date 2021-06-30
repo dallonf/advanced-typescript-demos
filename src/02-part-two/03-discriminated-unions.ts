@@ -1,3 +1,5 @@
+// # Discriminated Unions Reprise
+
 interface Hero {
   name: string;
   power: string;
