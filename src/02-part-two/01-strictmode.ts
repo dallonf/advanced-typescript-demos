@@ -35,3 +35,5 @@
 //     console.log(this.name.toString()); // kaboom
 //   }
 // }
+
+export {};
