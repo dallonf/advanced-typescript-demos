@@ -1,4 +1,6 @@
-// A component that wants to pass some props to a lower component it renders
+// # Type Composition
+
+// Example: A component that wants to pass some props to a lower component it renders
 
 interface InnerProps {
   textColor: string;

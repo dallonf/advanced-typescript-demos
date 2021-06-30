@@ -1,6 +1,4 @@
-//
-// Mapped Types
-//
+// # Mapped Types
 
 // Example: An object that might have some form of ID
 

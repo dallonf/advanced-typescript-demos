@@ -1,4 +1,4 @@
-// Function overloads
+// # Function overloads
 
 // 1. Can always use optional props, args spread, or union types
 
