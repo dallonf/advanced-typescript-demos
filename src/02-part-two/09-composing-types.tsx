@@ -1,3 +1,5 @@
+import * as React from "react";
+
 // # Type Composition
 
 // Example: A component that wants to pass some props to a lower component it renders
@@ -22,6 +24,33 @@ interface OuterPropsDuplicated {
 
 // It can actually be MORE readable to have duplication if definitions are
 // explicit near the place it is actually used
+
+// # 1.5: Don't; use composition instead
+
+const InnerComponent: React.FC<InnerProps> = () => <div />;
+
+const OuterComponentNotLikeThis: React.FC<OuterPropsDuplicated> = ({
+  buttonColor,
+  margin,
+  textColor,
+}) => {
+  return (
+    <div style={{ margin }}>
+      <InnerComponent buttonColor={buttonColor} textColor={textColor} />
+    </div>
+  );
+};
+
+const OuterComponentComposed: React.FC<{
+  margin: number;
+  children?: React.ReactChild;
+}> = ({ margin, children }) => {
+  return <div style={{ margin }}>{children}</div>;
+};
+
+<OuterComponentComposed margin={1}>
+  <InnerComponent buttonColor="red" textColor="blue" />
+</OuterComponentComposed>;
 
 // -- Before going further, make sure the types you're trying to share
 // are actually related!
