@@ -8,8 +8,9 @@
 
 // // -- -- --
 
-// let x: string | null;
-// console.log(x.toUpperCase()); // kaboom
+// function printUpper(x?: string | null) {
+//   console.log(x.toUpperCase()); // kaboom
+// }
 
 // // -- -- --
 

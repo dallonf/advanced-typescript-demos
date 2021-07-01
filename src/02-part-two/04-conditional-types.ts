@@ -4,6 +4,9 @@ import * as React from "react";
 
 // Example: Extract the type from an array
 
+type Example1 = string[] extends string[] ? "yes" : "no";
+type Example = string[] extends (infer ItemType)[] ? ItemType : never;
+
 type ExtractFromArray<Array> = Array extends (infer ItemType)[]
   ? ItemType
   : never;

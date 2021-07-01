@@ -9,7 +9,7 @@ interface InnerProps {
   buttonColor: string;
 }
 
-// ## 1: Don't
+// ## 1: Don't get fancy
 // Just duplicate whatever needs to be duplicated
 interface OuterPropsDuplicated {
   textColor: string;

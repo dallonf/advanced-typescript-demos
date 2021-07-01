@@ -11,7 +11,16 @@ type BrokenIntersection = Intersection & { b: number };
 //   a: "one",
 //   b: 2,
 // };
-// Better to use the Override pattern introduced previously
+
+// Better to use the Override pattern
+
+type Override<Type, Overrides> = Omit<Type, keyof Overrides> & Overrides;
+
+type Modified = Override<Intersection, { b: number }>;
+const modified: Modified = {
+  a: "one",
+  b: 2,
+};
 
 type Character =
   | {
@@ -22,7 +31,9 @@ type Character =
   | { type: "villain"; name: string; crimes: string };
 
 // This usually isn't a USEFUL pattern, but it's interesting
-function printVillain(input: Character & { type: "villain" }) {
+type Villain = Character & { type: "villain" };
+
+function printVillain(input: Villain) {
   console.log(`${input.name} is wanted for ${input.crimes}`);
 }
 
