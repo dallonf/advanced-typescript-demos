@@ -53,7 +53,10 @@ interface SaneLib {
 // 4. But I REALLY want to...
 
 // Fine
-function overloadedFindUserDefinition(...args: unknown[]): any {
+function overloadedFindUser(): string[];
+function overloadedFindUser(id: number): string;
+function overloadedFindUser(firstName: string, lastName: string): string;
+function overloadedFindUser(...args: unknown[]): any {
   if (args.length === 0) {
     // find all users
     return ["user1", "user2", "user3"];
@@ -72,7 +75,6 @@ function overloadedFindUserDefinition(...args: unknown[]): any {
     return "user2";
   }
 }
-const overloadedFindUser: FindUserFn = overloadedFindUserDefinition;
 overloadedFindUser();
 overloadedFindUser(1234);
 overloadedFindUser("Homer", "Simpson");

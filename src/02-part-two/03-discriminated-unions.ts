@@ -68,8 +68,8 @@ function printDiscriminatedUnion(hero: DiscriminatedUnion) {
     console.log(`${hero.name} has the power of ${hero.power}`);
   } else {
     // This is another way to do an exhaustive check
-    const never: never = hero;
-    return never;
+    const exhaustiveCheck: never = hero;
+    return exhaustiveCheck;
   }
 }
 

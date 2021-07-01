@@ -80,6 +80,11 @@ type OuterPropsIntersected = InnerProps & {
   margin: number;
 };
 
+interface OuterPropsIndividuallyIndexed {
+  margin: number;
+  textColor: InnerProps["textColor"];
+}
+
 type InnerPropsCommonPicked = Pick<InnerProps, "textColor">;
 type InnerPropsCommonOmitted = Omit<InnerProps, "buttonColor">;
 type Override<Type, Overrides> = Omit<Type, keyof Overrides> & Overrides;
